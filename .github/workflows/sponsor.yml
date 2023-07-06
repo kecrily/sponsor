@@ -31,9 +31,10 @@ jobs:
           OPENCOLLECTIVE_KEY: ${{ secrets.OPENCOLLECTIVE_KEY }}
 
       - name: Commit
-        run: |
-          git config user.name 'GitHub Action'
-          git config user.email 'kecrily@users.noreply.github.com'
-          git add sponsors*
-          git commit -m 'chore: update sponsors'
-          git push
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: sponsors*
+          message: 'chore: update sponsors'
+          committer_name: GitHub Actions
+          committer_email: actions@github.com
+
