@@ -20,12 +20,12 @@ jobs:
           version: 8.x
 
       - name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: lts/*
 
       - name: Update
-        run: pnpx sponsorkit --dir .
+        run: pnpx sponsorkit@0.8.9 --dir .
         env:
           GITHUB_TOKEN: ${{ secrets.SPONSORKIT_GITHUB_TOKEN }}
           OPENCOLLECTIVE_KEY: ${{ secrets.OPENCOLLECTIVE_KEY }}
